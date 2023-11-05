@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    username: root
+    password: 52wendyma
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.223.27.13:3306/java_ecology?serverTimezone=GMT%2B8
+    hikari:
+      max-lifetime: 60000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+local-file-server:
+  spring-file-upload:
+    root-path: D:/local_file_server/spring_file_uplaod/
