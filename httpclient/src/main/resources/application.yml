@@ -1,0 +1,5 @@
+server:
+  port: 8082
+
+rest-server:
+  host: http://localhost:8081
