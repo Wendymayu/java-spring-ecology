@@ -1,0 +1,83 @@
+{
+  "id": "MorningHeartLanguage",
+  "type": "swagger",
+  "name": "早安心语",
+  "description": "返回一句励志的话给新的一天注入动力。",
+  "icon": "https://connector-icon.obs.cn-north-4.myhuaweicloud.com/icon/0b28948fba8025c72fbfc01702ee95b3/130485f164d14779ae64a3b27a24b7f8.png",
+  "created_time": "2022-03-25T01:47:27.0Z",
+  "updated_time": "2022-04-30T06:37:26.0Z",
+  "status": "onboard",
+  "swagger": {
+    "swagger": "2.0",
+    "info": {
+      "version": "v1",
+      "title": "早安心语",
+      "description": "返回一句励志的话给新的一天注入动力。",
+      "x-hw-deploy-url": "com.huawei.apaas.ssi.component.third.tian.TianConnector"
+    },
+    "schemes": [
+      "http"
+    ],
+    "host": "applications-service.default.svc.cluster.local:8090",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "早安心语"
+      }
+    ],
+    "paths": {
+      "/v1/morning": {
+        "get": {
+          "operationId": "MorningHeartLanguage",
+          "summary": "获取早安心语",
+          "description": "早上是阳光太阳东升的时间，一句励志的话给新的一天注入动力。",
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "返回内容",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "description": "早安心语返回内容",
+                    "type": "string",
+                    "required": false,
+                    "format": "string",
+                    "x-hw-visibility": "none",
+                    "x-hw-label": "内7容"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": null
+      }
+    }
+  },
+  "auth_content": {
+    "auth_type": null,
+    "auth_info": null,
+    "auth_config": null,
+    "auth_prop": null,
+    "auth_dynamic": null,
+    "host_config": null,
+    "cdm_params_config": null
+  },
+  "version": "1",
+  "category": "lifeService",
+  "need_auth": false,
+  "auth_id": null,
+  "action_count": 0,
+  "trigger_count": 1,
+  "provider_name": null,
+  "release_version": "1",
+  "swagger_versionId": null,
+  "favorite": null
+}
