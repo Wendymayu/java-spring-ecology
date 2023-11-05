@@ -1,0 +1,5 @@
+server:
+  port: 8084
+
+file-path:
+  pom: D:/local_file_server/xml_demo/pom.xml
