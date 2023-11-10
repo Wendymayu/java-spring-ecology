@@ -11,3 +11,9 @@ spring:
         smtp:
           ssl:
             enable: true
+  rabbitmq:
+    host: 124.223.27.13
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: / #rabbitmq未创建虚拟host默认配置
