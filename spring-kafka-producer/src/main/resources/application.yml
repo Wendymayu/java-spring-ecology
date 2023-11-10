@@ -1,0 +1,10 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: spring-kafka-producer
+  kafka:
+    bootstrap-servers: 124.223.27.13:9092
+    producer:
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
