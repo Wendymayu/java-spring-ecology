@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-jdbc-demo
+  datasource:
+    username: root
+    password: 52wendyma
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.223.27.13:3306/java_ecology?serverTimezone=GMT%2B8
+    hikari:
+      max-lifetime: 60000
+
