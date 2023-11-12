@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    username: root
+    password: 52wendyma
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.223.27.13:3306/java_ecology?serverTimezone=GMT%2B8
+    hikari:
+      max-lifetime: 60000
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
