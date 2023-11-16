@@ -1,6 +1,6 @@
 package com.wendy.demo.filter;
 
-import com.wendy.demo.AuditLog;
+import com.wendy.demo.entity.AuditLog;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpMethod;

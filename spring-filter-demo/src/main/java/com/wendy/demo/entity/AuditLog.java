@@ -1,4 +1,4 @@
-package com.wendy.demo;
+package com.wendy.demo.entity;
 
 import lombok.Data;
 
