@@ -1,4 +1,4 @@
-package com.wendy.mail.entity;
+package com.wendy.demo.entity;
 
 import lombok.Data;
 

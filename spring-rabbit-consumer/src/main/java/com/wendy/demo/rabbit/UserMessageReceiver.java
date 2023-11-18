@@ -1,7 +1,7 @@
-package com.wendy.mail.rabbit;
+package com.wendy.demo.rabbit;
 
 import com.wendy.common.utils.JsonUtils;
-import com.wendy.mail.entity.UserInfoMessage;
+import com.wendy.demo.entity.UserInfoMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
