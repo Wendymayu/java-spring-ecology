@@ -32,6 +32,6 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(userInfo, userInfoMessage);
         rabbitTemplate.convertAndSend(RabbitConstants.DIRECT_EXCHANGE,
                 RabbitConstants.EMAIL_DIRECT_ROUTINGKEY, JsonUtils.toJson(userInfoMessage));
-        return null;
+        return "success";
     }
 }
