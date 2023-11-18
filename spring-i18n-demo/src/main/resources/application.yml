@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-i18n-demo
+  messages:
+    basename: i18n/messages
+    encoding: GBK #解决中文乱码
+    cache-duration: 3600
