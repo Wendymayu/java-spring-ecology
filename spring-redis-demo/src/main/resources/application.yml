@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  redis:
+    host: 124.223.27.13
+    port: 6379
+    password: 52wendyma
+    connect-timeout: 10000
