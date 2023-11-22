@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-flyway-demo
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/blog
+    username: sa
+    password: 123
+  jpa:
+    show-sql: true
+  flyway:
+    # 启用或禁用 flyway
+    enabled: true
+    clean-disabled: true
+    # SQL 脚本的目录,多个路径使用逗号分隔 默认值 classpath:db/migration
+    locations: classpath:/db/migration
+    # 设置为 true 后 flyway 将在需要 baseline 的时候, 自动执行一次 baseline。
+    baseline-on-migrate: true
+    # 是否允许不按顺序迁移 开发建议 true  生产建议 false
+    out-of-order: false
+    # 执行迁移时是否自动调用验证,当你的版本不符合逻辑,比如你先执行了DML而没有对应的DDL会抛出异常
+    validate-on-migrate: true
+  h2:
+    console:
+      settings:
+        web-allow-others: true #进行该配置后，h2 web consloe就可以在远程访问
+      enabled: true #进行该配置，程序开启时就会启动h2 web consloe
+      path: /h2
