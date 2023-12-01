@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-h2-demo
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:~/test  #内存中建库
+    #url: jdbc:h2:~/test #本地用户目录下建库
+    username: sa  #设置h2库的用户名
+    password: 123  #设置h2库的密码
+  sql:
+    init:
+      schema-locations:
+        - classpath:sql/test-schema.sql #自动建表
+      mode: always
+  h2:
+    console:
+      settings:
+        web-allow-others: true #进行该配置后，h2 web consloe就可以在远程访问
+      enabled: true #进行该配置，程序开启时就会启动h2 web consloe
+      path: /h2
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true #数据库下划线名到驼峰的映射

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wendy.demo.dao.BookDao">
+    <insert id="addBook" parameterType="com.wendy.demo.dao.BookPo">
+        insert into t_book(id, book_name, author, publisher, published_date)
+        values (#{bookPo.id}, #{bookPo.bookName}, #{bookPo.author}, #{bookPo.publisher}, #{bookPo.publishedDate})
+    </insert>
+
+    <select id="queryBook" parameterType="java.lang.Long"
+            resultType="com.wendy.demo.dao.BookPo">
+         select * from t_book t where t.id = #{id}
+    </select>
+</mapper>
