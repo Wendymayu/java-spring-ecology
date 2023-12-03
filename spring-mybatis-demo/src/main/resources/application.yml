@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-mybatis-demo
+  main:
+    allow-circular-references: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:~/test  #内存中建库
+    username: sa  #设置h2库的用户名
+    password: 123  #设置h2库的密码
+  sql:
+    init:
+      schema-locations:
+        - classpath:sql/test-schema.sql #自动建表
+      mode: always
+  h2:
+    console:
+      settings:
+        web-allow-others: true
+      enabled: true
+      path: /h2
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true #数据库下划线名到驼峰的映射
+pagehelper:
+  helper-dialect: h2
+  reasonable: true
+  support-methods-arguments: true
