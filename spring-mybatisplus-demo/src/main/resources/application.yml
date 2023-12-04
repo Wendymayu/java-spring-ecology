@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-mybatisplus-demo
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:~/test  #内存中建库
+    username: sa  #设置h2库的用户名
+    password: 123  #设置h2库的密码
+  sql:
+    init:
+      schema-locations:
+        - classpath:sql/test-schema.sql #自动建表
+      mode: always
+  h2:
+    console:
+      settings:
+        web-allow-others: true
+      enabled: true
+      path: /h2
+
+mybatis-plus:
+  #配置mapper.xml文件扫描路径，切记Mapper接口配置扫描路径用@ MapperScan注解
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true #驼峰与下划线转化
