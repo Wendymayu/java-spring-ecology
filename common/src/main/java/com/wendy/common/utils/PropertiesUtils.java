@@ -15,18 +15,30 @@ import java.util.Map;
  */
 public class PropertiesUtils {
     public static String getProperty(String key) {
-        Property property = new Property();
+        Property property = new Property("application.properties");
+        property.load();
+        return property.getProperty(key);
+    }
+
+    public static String getProperty(String key, String fileName) {
+        Property property = new Property(fileName);
         property.load();
         return property.getProperty(key);
     }
 
     static class Property {
+        private String fileName;
+
         private Map<String, String> map = new HashMap<>();
 
+        public Property(String fileName) {
+            this.fileName = fileName;
+        }
+
         private void load() {
-            try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("application.properties");
+            try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(fileName);
                  InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                 BufferedReader br = new BufferedReader(inputStreamReader);) {
+                 BufferedReader br = new BufferedReader(inputStreamReader)) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     String[] setting = line.split("=");
