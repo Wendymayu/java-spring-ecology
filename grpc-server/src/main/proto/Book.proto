@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.wendy.grpc;
+
+option optimize_for =SPEED;
+option java_package = "com.wendy.grpc";
+option java_multiple_files = true;
+
+service BookService {
+    rpc QueryBook(QueryBookRequest) returns (BookInfo) {}
+
+    rpc AddBook(BookInfo) returns (BookInfo) {}
+}
+
+message QueryBookRequest {
+    int64 bookId = 1;
+}
+
+message BookInfo {
+   int64 id = 1;
+
+   string bookName = 2;
+
+   string author = 3;
+
+   string publisher = 4;
+
+   string publishedDate = 5;
+}
