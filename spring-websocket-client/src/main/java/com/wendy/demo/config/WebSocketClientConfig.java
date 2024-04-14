@@ -1,5 +1,6 @@
-package com.wendy.demo;
+package com.wendy.demo.config;
 
+import com.wendy.demo.wshandler.ClientWebSocketHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.WebSocketHandler;
@@ -23,6 +24,6 @@ public class WebSocketClientConfig {
 
     @Bean
     public WebSocketHandler webSocketHandler() {
-        return new MyWebSocketHandler();
+        return new ClientWebSocketHandler();
     }
 }

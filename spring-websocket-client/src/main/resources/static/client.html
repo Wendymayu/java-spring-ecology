@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Example</title>
+    <style>
+        .received-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<button onclick="startWebSocket()">Connect WebSocket</button>
+<input type="text" id="messageInput" placeholder="Enter message">
+<button onclick="sendMessage()">Send Message</button>
+<div id="messageContainer"></div>
+
+<script>
+    var socket;
+    var messageLog = "";
+
+    function startWebSocket() {
+        socket = new WebSocket("ws://localhost:8080/websocket-server/v1/hello?userId=browser");
+
+        socket.onopen = function(event) {
+            console.log("WebSocket opened");
+        };
+
+        socket.onmessage = function(event) {
+            console.log("Message received: " + event.data);
+            var message = JSON.parse(event.data);
+            var content = message.content;
+            messageLog += '<span class="received-message">Received message: ' + content + '</span><br>';
+            document.getElementById("messageContainer").innerHTML = messageLog;
+        };
+
+        socket.onclose = function(event) {
+            console.log("WebSocket closed");
+        };
+    }
+
+    function sendMessage() {
+        var message = document.getElementById("messageInput").value;
+        var obj = {
+            "from": "browser",
+            "to": "idea",
+            "content": message
+        };
+        var jsonString = JSON.stringify(obj);
+        socket.send(jsonString);
+        messageLog += "Sent message: " + message + "<br>";
+        document.getElementById("messageContainer").innerHTML = messageLog;
+    }
+</script>
+</body>
+</html>
