@@ -40,14 +40,12 @@
 
 我不想在本地启动两个java客户端，因此用js实现客户端A，java实现客户端B。发消息时需要两个客户端同时在线。
 ## 浏览器实现客户端A
+建立连接
 ```javascript
-var socket = new WebSocket("ws://localhost:8080/websocket-demo/v1/hello");
+var socket = new WebSocket("ws://localhost:8080/websocket-server/v1/hello?userId=browser");
 
 socket.onopen = function(event) {
     console.log("WebSocket opened");
-    
-    // 在连接建立后发送数据到服务器端
-    socket.send("Hello, WebSocket Server!");
 };
 
 socket.onmessage = function(event) {
@@ -57,6 +55,16 @@ socket.onmessage = function(event) {
 socket.onclose = function(event) {
     console.log("WebSocket closed");
 };
+```
+发送消息
+```javascript
+var obj = {
+    "from": "idea",
+    "to": "browser",
+    "content": "你好，idea"
+};
+var jsonString = JSON.stringify(obj);
+socket.send(jsonString);
 ```
 
 ## java实现客户端B

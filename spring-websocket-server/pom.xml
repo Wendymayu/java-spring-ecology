@@ -30,6 +30,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.16</version>
         </dependency>
+        <dependency>
+            <groupId>com.wendy</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
